@@ -1,0 +1,1 @@
+`define COLUMN_ACC_CYCLES 3273

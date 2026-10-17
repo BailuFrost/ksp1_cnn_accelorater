@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "date": "2026-10-16",
+  "scope": "Post-training packing, single-image golden reference, single-inference PC-JTAG runtime",
+  "script_count": 14,
+  "counts": {
+    ".py": 10,
+    ".tcl": 4
+  },
+  "source_byte_equality": "PASS",
+  "python_syntax": "PASS",
+  "tcl_text_completeness": "PASS",
+  "import_and_source_coverage": "PASS; cnn_model_tiny.py intentionally external",
+  "documentation_links": "PASS",
+  "development_tests": {
+    "command": [
+      "E:\\anaconda\\conda\\envs\\cnn-fpga\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts/jtag",
+      "-p",
+      "test_infer_tiny.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "tests": 4,
+    "board_validation": "NOT_RUN",
+    "scope": "Host checks, single-image golden agreement, Tcl MOCK single start; not executed by deployment CLI"
+  },
+  "tests_auto_run_by_runtime": false,
+  "t5_acceptance_scenarios_auto_run": false,
+  "single_start_tcl_mock": "PASS",
+  "cnn_model_tiny_copied": false,
+  "board_validation": "NOT_RUN"
+}

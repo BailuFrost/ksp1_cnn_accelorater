@@ -1,0 +1,51 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local editor and tool settings
+/.settings/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Vivado/XSim working files; keep the exported hardware bundle
+.Xil/
+*.cache/
+*.runs/
+*.sim/
+*.gen/
+*.ip_user_files/
+/vivado/
+/myproj/
+vivado*.log
+vivado*.jou
+xvlog*.log
+xelab*.log
+xsim*.log
+*.backup.log
+*.backup.jou
+*.wdb
+*.wcfg
+*.vcd
+*.fst
+
+# Local datasets and temporary files
+/data/
+tmp/
+node-compile-cache/
+*.tmp
+
+# New deployment runs; retain the published board-test evidence
+/reports/tiny/prepare_*/
+/reports/tiny/board_run_*/
+!/reports/tiny/board_run_001/
+
+# Keep hardware/, model weights, calibration, deployment BINs and tb/*.mem.

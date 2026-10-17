@@ -1,0 +1,93 @@
+{
+  "stage": "T0",
+  "model": "SimpleCNN",
+  "source": "model/cnn_model_tiny.py",
+  "dataset": "MNIST",
+  "inference_batch_size": 1,
+  "input_nchw": [1, 1, 28, 28],
+  "preprocessing": {
+    "operations": ["ToTensor", "Normalize"],
+    "mean": [0.5],
+    "std": [0.5],
+    "pixel_formula": "(uint8 / 255.0 - 0.5) / 0.5",
+    "resize": false,
+    "augmentation": false
+  },
+  "physical_format": {
+    "dtype": "signed INT16",
+    "byte_order": "little",
+    "layout": "HWC",
+    "channel_alignment": 4,
+    "padding_value": 0,
+    "input_pixel_lanes": ["x_q", 0, 0, 0],
+    "output_valid_logits": 10,
+    "output_padded_channels": 12,
+    "input_bytes": 6272,
+    "output_bytes": 24,
+    "output_xsdb_words32": 6
+  },
+  "layers": [
+    {"name": "conv1", "opcode": "CONV", "input_hwc": [28, 28, 1], "output_hwc": [28, 28, 32], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "pool1", "opcode": "MAXPOOL", "input_hwc": [28, 28, 32], "output_hwc": [14, 14, 32], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "conv2", "opcode": "CONV", "input_hwc": [14, 14, 32], "output_hwc": [14, 14, 64], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "pool2", "opcode": "MAXPOOL", "input_hwc": [14, 14, 64], "output_hwc": [7, 7, 64], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "fc1", "opcode": "FC", "input_hwc": [7, 7, 64], "output_hwc": [1, 1, 128], "kernel": 1, "stride": 1, "padding": 0, "relu": true},
+    {"name": "fc2", "opcode": "FC", "input_hwc": [1, 1, 128], "output_hwc": [1, 1, 10], "kernel": 1, "stride": 1, "padding": 0, "relu": false}
+  ],
+  "fc1_flatten_mapping": {
+    "pytorch_order": "CHW",
+    "hardware_order": "HWC",
+    "hardware_index_j": "(h * 7 + w) * 64 + c",
+    "pytorch_index_k": "c * 49 + h * 7 + w",
+    "export_rule": "W_PL[out, j] = W_torch[out, k]",
+    "implementation_stage": "T3"
+  },
+  "hardware": {
+    "bundle": "hardware/system",
+    "delivery_manifest": "hardware/delivery_manifest.json",
+    "build_id": "0x20261015",
+    "required_capabilities": ["CONV_3x3", "FC", "MAXPOOL_2x2_S2_P0"],
+    "cu": 8,
+    "spatial_parallel": 8,
+    "bypass_parallel": 72,
+    "tile_channels": 512,
+    "weight_block_bytes": 73728,
+    "package_version": 2,
+    "instruction_layout": "V1",
+    "fclk_hz": 100000000,
+    "csr_base": "0x43C00000",
+    "pinned_sha256": {
+      "e_j2_system_wrapper.bit": "78221e0bd3bc540a9bad557ada4002bd146e70e7afa75f35ee33aac0926b9715",
+      "e_j2.xsa": "1666780043a67febcbdd8f377f9cabae08a50a6dcf3883cdc447a5f81918a4f5",
+      "ps7_init.tcl": "7efae1b98d3e106a5b9c24813aec02f40194a5384fa82d2765dbf76c50f6f0ea",
+      "address_map.tcl": "ac1d8b379bda82b0bf9784bbeb4eefaff7c421b6ac97ecd009089e28aa8f8d60"
+    }
+  },
+  "expected_storage": {
+    "command_bytes": 448,
+    "weights_and_bias_bytes": 1993472,
+    "max_feature_bytes": 50176,
+    "layer_output_bytes": [50176, 12544, 25088, 6272, 256, 24]
+  },
+  "preserved_paths": [
+    "model/cnn_model_tiny.py",
+    "model/micro_network_config.json",
+    "model/micro_network_random.json",
+    "model/micro_network_reference.py",
+    "scripts/jtag/check_cu8_board.py",
+    "scripts/jtag/test_cu8_board.tcl",
+    "reports/cu8/d5",
+    "reports/cu8/micro_random",
+    "reports/cu8/board/run_20261015_150541_670",
+    "reports/cu8/delivery_manifest.json",
+    "reports/pc_jtag/e_j2/delivery_manifest.json",
+    "reports/f_j0/delivery_manifest.json",
+    "reports/f_j0/交付报告.md"
+  ],
+  "deferred": {
+    "training_checkpoint": "T1",
+    "calibration_and_fixed_point_scales": "T2",
+    "deployment_binaries": "T3",
+    "pool_and_tiny_board_validation": "T5"
+  }
+}

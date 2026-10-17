@@ -1,0 +1,45 @@
+attempting to launch hw_server
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:25:41
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+****** Xilinx hw_server v2024.2
+
+  **** Build date : Oct 29 2024 at 10:25:41
+
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: hw_server application started
+
+INFO: Use Ctrl-C to exit hw_server application
+
+
+
+
+INFO: To connect to this hw_server instance use url: TCP:127.0.0.1:3121
+
+
+
+TARGETS: {target_ctx JTAG-jsn-JTAG-HS1-210512180081-4ba00477-0 target_id 1 level 0 name APU parent_ctx {} parent {} state_reason {} is_current 0 bscan {} jtag_device_id 2 jtag_device_ctx jsn-JTAG-HS1-210512180081-4ba00477-0 jtag_device_name arm_dap jtag_cable_id 1 jtag_cable_ctx jsn-JTAG-HS1-210512180081 jtag_cable_name {Digilent JTAG-HS1 210512180081} jtag_device_index 0 jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081} {target_ctx JTAG-jsn-JTAG-HS1-210512180081-4ba00477-0.0 target_id 2 level 1 name {ARM Cortex-A9 MPCore #0} parent_ctx JTAG-jsn-JTAG-HS1-210512180081-4ba00477-0 parent APU state_reason Running is_current 0 bscan {} jtag_device_id 2 jtag_device_ctx jsn-JTAG-HS1-210512180081-4ba00477-0 jtag_device_name arm_dap jtag_cable_id 1 jtag_cable_ctx jsn-JTAG-HS1-210512180081 jtag_cable_name {Digilent JTAG-HS1 210512180081} jtag_device_index 0 jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 suspended 0} {target_ctx JTAG-jsn-JTAG-HS1-210512180081-4ba00477-0.1 target_id 3 level 1 name {ARM Cortex-A9 MPCore #1} parent_ctx JTAG-jsn-JTAG-HS1-210512180081-4ba00477-0 parent APU state_reason Running is_current 0 bscan {} jtag_device_id 2 jtag_device_ctx jsn-JTAG-HS1-210512180081-4ba00477-0 jtag_device_name arm_dap jtag_cable_id 1 jtag_cable_ctx jsn-JTAG-HS1-210512180081 jtag_cable_name {Digilent JTAG-HS1 210512180081} jtag_device_index 0 jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 suspended 0} {target_ctx JTAG-jsn-JTAG-HS1-210512180081-23727093-0 target_id 4 level 0 name xc7z020 parent_ctx {} parent {} state_reason {} is_current 0 bscan {} jtag_device_id 3 jtag_device_ctx jsn-JTAG-HS1-210512180081-23727093-0 jtag_device_name xc7z020 jtag_cable_id 1 jtag_cable_ctx jsn-JTAG-HS1-210512180081 jtag_cable_name {Digilent JTAG-HS1 210512180081} jtag_device_index 1 jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081}
+BOOT_MODE (JTAG) @0xF800025C = 0x00000000
+INFO: [Hsi 55-2053] elapsed time for repository (E:/Vitis/2024.2/data/embeddedsw) loading 0 seconds
+FCLK0_DIVIDERS @0xF8000170 = 0x00300600
+DDR_CLOCK @0xF8000124 = 0x0C200003
+PLL_LOCKS @0xF800010C = 0x0000003F
+FCLK0_RESET_RELEASED @0xF8000240 = 0x00000000
+PS_PL_LEVEL_SHIFTERS @0xF8000900 = 0x0000000F
+L2 cache disabled @0xF8F02100 = 0x00000000
+BUILD_ID @0x43C0001C = 0x20261015
+MODEL_BASE @0x43C00008 = 0x04000000
+MODEL_BYTES @0x43C00020 = 0x000001C0

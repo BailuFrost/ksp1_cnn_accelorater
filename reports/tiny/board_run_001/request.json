@@ -1,0 +1,109 @@
+{
+  "hardware": [
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\e_j2.xsa",
+      "bytes": 1435606,
+      "sha256": "1666780043a67febcbdd8f377f9cabae08a50a6dcf3883cdc447a5f81918a4f5"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\e_j2_system_wrapper.bit",
+      "bytes": 4045679,
+      "sha256": "78221e0bd3bc540a9bad557ada4002bd146e70e7afa75f35ee33aac0926b9715"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\ps7_init.tcl",
+      "bytes": 26573,
+      "sha256": "7efae1b98d3e106a5b9c24813aec02f40194a5384fa82d2765dbf76c50f6f0ea"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\ps7_init.c",
+      "bytes": 335957,
+      "sha256": "32a246102f685d26a53e6b2f2896a4348e9786de586f1db61a00612842539df8"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\ps7_init.h",
+      "bytes": 3793,
+      "sha256": "665cec86b145559cff055d51ee740b6fc860aa9337ad09ca7f259da9e35deeff"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\ps7_init.html",
+      "bytes": 1940567,
+      "sha256": "5475446c4629513d7145933f53f640a4d1a98c550df866433523fe2bfcd2368b"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\address_map.tcl",
+      "bytes": 157,
+      "sha256": "ac1d8b379bda82b0bf9784bbeb4eefaff7c421b6ac97ecd009089e28aa8f8d60"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\init_checks.tcl",
+      "bytes": 297,
+      "sha256": "c1d61f001fdde135a8d244518ed009762eda583a48687ffc940e791d70cdc83f"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\synthesis_summary.json",
+      "bytes": 102,
+      "sha256": "352b210c4a4848d7bbc7c79c4645f0b0a6754e57b2d750760828806cd10bff46"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\implementation_summary.json",
+      "bytes": 95,
+      "sha256": "91a1e06129086e77f4a172d0f2cbad656ca8f0f0f3786413251af52f56144e28"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\simulation_summary.json",
+      "bytes": 199,
+      "sha256": "bc8f9b1ce0ffcad1514c82f84898e72a5b743189c9125915e0b194083ba87201"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\resolved_configuration.tsv",
+      "bytes": 174069,
+      "sha256": "a618853ab4be3ec855495a36240882bf428cb78a8e6eca3599988cfed28646cc"
+    },
+    {
+      "path": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\e_j2_routed.dcp",
+      "bytes": 28396939,
+      "sha256": "4d82b449bee8db7336c37c4d3fe824b0248843326e356b1763ec20e357f6d316"
+    }
+  ],
+  "payload_sha256": {
+    "expected.bin": "f8294e239ac877a16cbe82eae22efb4968d54b950b171ff614d1834aa4e06477",
+    "input.bin": "cb1ac8724f276ec11e2f51919912432e436eeef18ef08c61c0083d774bc122a3",
+    "tiny_cmd.bin": "51fbd6dbbd4057c2c1edd68229c83f6cf0867def0c63c527a376f97bc1cb9b0e",
+    "tiny_weights.bin": "553ff59c21c0e028f8ce918a6fc5926ee0e8866914efa25fd2183a90d79c0c57"
+  },
+  "sample": {
+    "split": "MNIST test",
+    "index": 2778,
+    "label": 4,
+    "image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\inputs\\test_02778\\digit.png",
+    "checkpoint_sha256": "9bbcce41806cefa448150de35c95bb227d855e70d6010d0df8eecd68aec31922",
+    "quantization_sha256": "9f54376e207ffb0b1b9a1be9f9fa9447cb16057d48e4eee501dc9dce787d5a00",
+    "int16_logits": [
+      3697,
+      -631,
+      1685,
+      -4408,
+      6244,
+      -2638,
+      295,
+      372,
+      -3252,
+      -699
+    ],
+    "float_prediction": 4,
+    "int16_prediction": 4,
+    "output_fraction": 10,
+    "files": {
+      "input.bin": {
+        "bytes": 6272,
+        "sha256": "cb1ac8724f276ec11e2f51919912432e436eeef18ef08c61c0083d774bc122a3"
+      },
+      "expected.bin": {
+        "bytes": 24,
+        "sha256": "f8294e239ac877a16cbe82eae22efb4968d54b950b171ff614d1834aa4e06477"
+      }
+    }
+  },
+  "board_validation": "NOT_RUN"
+}

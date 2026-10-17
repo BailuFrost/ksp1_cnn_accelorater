@@ -1,0 +1,15 @@
+{
+  "python": "3.12.15 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:14:50) [MSC v.1942 64 bit (AMD64)]",
+  "python_executable": "E:\\anaconda\\conda\\envs\\cnn-fpga\\python.exe",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu",
+    "numpy": "2.5.2",
+    "Pillow": "12.3.0"
+  },
+  "tools": {
+    "vivado": "E:/Vivado/2024.2/bin/vivado.bat",
+    "xsdb": "E:/Vitis/2024.2/bin/xsdb.bat"
+  },
+  "note": "Version snapshot only; no installation or hardware tool execution"
+}

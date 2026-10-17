@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+READY cycles=44
+SENT cycles=2351
+HP CANCEL cycles=2455
+GP CANCEL cycles=2554
+PASS E-J2 real DataMover checks=18 cancels=5 cycles=4998
+$finish called at time : 49975 ns : File "E:/Loongson_SoC/CNN/xc7z020_cnn_accelerator/reports/f_j0/system/tb_f_j0_datamover.v" Line 553

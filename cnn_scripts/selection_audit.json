@@ -1,0 +1,118 @@
+{
+  "scope": "Post-training TinyCNN package, single-image golden reference and single-inference PC-JTAG runtime only",
+  "removed_from_previous_collection": [
+    "model/feature_buffer_reference.py",
+    "model/kernel_buffer_reference.py",
+    "model/micro_network_reference.py",
+    "model/output_cmd_reference.py",
+    "model/test_cnn_model_tiny.py",
+    "model/test_cu8.py",
+    "model/test_micro_network_reference.py",
+    "model/test_tiny_model_package.py",
+    "model/test_tiny_network_reference.py",
+    "model/test_tiny_rtl.py",
+    "model/weight_cmd_reference.py",
+    "scripts/check_tiny_reference.py",
+    "scripts/check_tiny_rtl.py",
+    "scripts/jtag/check_cu8_board.py",
+    "scripts/jtag/check_model_package.py",
+    "scripts/jtag/check_tiny_board.py",
+    "scripts/jtag/test_check_cu8_board.py",
+    "scripts/jtag/test_check_tiny_board.py",
+    "scripts/jtag/test_cu8_board_offline.tcl",
+    "scripts/jtag/test_tiny_board.tcl",
+    "scripts/jtag/test_tiny_board_offline.tcl",
+    "scripts/run_tiny_t4.tcl"
+  ],
+  "retained": {
+    "scripts/pack_tiny_model.py": {
+      "role": "Entry: pack trained checkpoint into commands and INT16 weights",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.py"
+      ]
+    },
+    "scripts/prepare_tiny_input.py": {
+      "role": "Entry: one image to FPGA input and INT16 golden output",
+      "needed_by": []
+    },
+    "scripts/jtag/infer_tiny.py": {
+      "role": "Entry: one inference, payload validation, launch and output comparison",
+      "needed_by": []
+    },
+    "scripts/jtag/infer_tiny.tcl": {
+      "role": "XSDB: PS/PL initialization, DDR upload, one start and readback",
+      "needed_by": []
+    },
+    "scripts/jtag/check_platform.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.py",
+        "scripts/check_tiny_baseline.py"
+      ]
+    },
+    "model/model_packer.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.py",
+        "scripts/pack_tiny_model.py",
+        "scripts/check_tiny_baseline.py",
+        "model/cal_cmd_reference.py"
+      ]
+    },
+    "model/int16_golden.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "model/model_packer.py",
+        "scripts/prepare_tiny_input.py",
+        "model/tiny_network_reference.py"
+      ]
+    },
+    "model/tiny_network_reference.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/prepare_tiny_input.py",
+        "scripts/pack_tiny_model.py"
+      ]
+    },
+    "model/pool_reference.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "model/tiny_network_reference.py"
+      ]
+    },
+    "model/cal_cmd_reference.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/pack_tiny_model.py",
+        "scripts/check_tiny_baseline.py"
+      ]
+    },
+    "scripts/check_tiny_baseline.py": {
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/pack_tiny_model.py"
+      ]
+    },
+    "scripts/jtag/test_cu8_board.tcl": {
+      "role": "Tcl shared function library; source with library-only flag",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.tcl"
+      ]
+    },
+    "scripts/jtag/deploy.tcl": {
+      "role": "Tcl shared function library; source with library-only flag",
+      "needed_by": [
+        "scripts/jtag/test_cu8_board.tcl"
+      ]
+    },
+    "scripts/board/check_e_j0.tcl": {
+      "role": "Tcl shared function library; source with library-only flag",
+      "needed_by": [
+        "scripts/jtag/deploy.tcl"
+      ]
+    }
+  },
+  "automatic_development_tests": false,
+  "automatic_t5_acceptance_scenarios": false,
+  "hardware_bundle": "External, complete reports/f_j0/system"
+}

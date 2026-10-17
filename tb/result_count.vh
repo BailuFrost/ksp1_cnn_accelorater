@@ -1,0 +1,2 @@
+`define RESULT_BUNDLES 56
+`define RESULT_BEATS 44

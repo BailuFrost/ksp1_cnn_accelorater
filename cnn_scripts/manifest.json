@@ -1,0 +1,247 @@
+{
+  "scope": "Post-training TinyCNN package, single-image golden reference and single-inference PC-JTAG runtime only",
+  "date": "2026-10-16",
+  "counts": {
+    ".py": 10,
+    ".tcl": 4
+  },
+  "files": [
+    {
+      "path": "model/cal_cmd_reference.py",
+      "bytes": 7652,
+      "sha256": "1c66ecbdd28ba530a43420d88a9f87a6a7ab2a436dd66ff1fa83042bf328de0d",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/pack_tiny_model.py",
+        "scripts/check_tiny_baseline.py"
+      ]
+    },
+    {
+      "path": "model/int16_golden.py",
+      "bytes": 29220,
+      "sha256": "2ca91d77f2809635df60088df242ec568dd01f4c42f182cee4fb6c1cac986686",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "model/model_packer.py",
+        "scripts/prepare_tiny_input.py",
+        "model/tiny_network_reference.py"
+      ]
+    },
+    {
+      "path": "model/model_packer.py",
+      "bytes": 45230,
+      "sha256": "a6100ffec4caa26be5988187f53cd58b3f17af657e37b074b01bd03f9ce5d125",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.py",
+        "scripts/pack_tiny_model.py",
+        "scripts/check_tiny_baseline.py",
+        "model/cal_cmd_reference.py"
+      ]
+    },
+    {
+      "path": "model/pool_reference.py",
+      "bytes": 2527,
+      "sha256": "14dac3aa9f7d92405676d7e50e75e6656ebd4ebf0f64606f782b2dcaf285820d",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "model/tiny_network_reference.py"
+      ]
+    },
+    {
+      "path": "model/tiny_network_reference.py",
+      "bytes": 18881,
+      "sha256": "3fab1c2cddee57dab3f0dba637f2f69e214c9f2c10e34c97d738b3c9a7251f5d",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/prepare_tiny_input.py",
+        "scripts/pack_tiny_model.py"
+      ]
+    },
+    {
+      "path": "scripts/board/check_e_j0.tcl",
+      "bytes": 7309,
+      "sha256": "88bb36722722f2ee8a71e3d3fe5b85fd39200b6063cce6d331449eb781afc165",
+      "role": "Tcl shared function library; source with library-only flag",
+      "needed_by": [
+        "scripts/jtag/deploy.tcl"
+      ]
+    },
+    {
+      "path": "scripts/check_tiny_baseline.py",
+      "bytes": 8961,
+      "sha256": "ea95773b738c041ac7af087670f00bb58bcec3ac677a1edfa0edd95bc299a01a",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/pack_tiny_model.py"
+      ]
+    },
+    {
+      "path": "scripts/jtag/check_platform.py",
+      "bytes": 9648,
+      "sha256": "38cd54d3612abb6bcfe552cdb2a48eeeb3bded2fedd6acc0fe7189712e86a1c0",
+      "role": "Python dependency; import functions only, do not run its development CLI",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.py",
+        "scripts/check_tiny_baseline.py"
+      ]
+    },
+    {
+      "path": "scripts/jtag/deploy.tcl",
+      "bytes": 7008,
+      "sha256": "f1c30cc124973f4ecc6b8bfea46e667cea118a382657677d61146a7ad864b371",
+      "role": "Tcl shared function library; source with library-only flag",
+      "needed_by": [
+        "scripts/jtag/test_cu8_board.tcl"
+      ]
+    },
+    {
+      "path": "scripts/jtag/infer_tiny.py",
+      "bytes": 8597,
+      "sha256": "b0c6753ca3e3377089b946fcaf3718ca8ad74b3f60ef8ac954b60957c09927fb",
+      "role": "Entry: one inference, payload validation, launch and output comparison",
+      "needed_by": []
+    },
+    {
+      "path": "scripts/jtag/infer_tiny.tcl",
+      "bytes": 3818,
+      "sha256": "762c1c4998d303bf7bf5134ce237e6f45f4049ce645cccad11155b53c27ee5ba",
+      "role": "XSDB: PS/PL initialization, DDR upload, one start and readback",
+      "needed_by": []
+    },
+    {
+      "path": "scripts/jtag/test_cu8_board.tcl",
+      "bytes": 6018,
+      "sha256": "cb6107dcf6b121d95f85759ddd6fb732b66c8b4fe9602077915fa39d98e05fbb",
+      "role": "Tcl shared function library; source with library-only flag",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.tcl"
+      ]
+    },
+    {
+      "path": "scripts/pack_tiny_model.py",
+      "bytes": 14702,
+      "sha256": "bfb2292565d044ebd8192f5881bf5a4bd6f51d64160cac48eaa7f54624a313f2",
+      "role": "Entry: pack trained checkpoint into commands and INT16 weights",
+      "needed_by": [
+        "scripts/jtag/infer_tiny.py"
+      ]
+    },
+    {
+      "path": "scripts/prepare_tiny_input.py",
+      "bytes": 2726,
+      "sha256": "9c0de00fc4eaa8bd6837f894f5c1ae388b3a57f7794c8b3455ad0d23b63b9382",
+      "role": "Entry: one image to FPGA input and INT16 golden output",
+      "needed_by": []
+    }
+  ],
+  "excluded": [
+    {
+      "path": "model/cnn_model_tiny.py",
+      "reason": "User explicitly excluded; retain original model definition",
+      "sha256": "433a684a316eee8a631219eb2acfc171c71ff2d721c7fcab650deeb5563fa769"
+    }
+  ],
+  "local_python_imports": [
+    [
+      "model/cal_cmd_reference.py",
+      "model/model_packer.py"
+    ],
+    [
+      "model/model_packer.py",
+      "model/int16_golden.py"
+    ],
+    [
+      "model/tiny_network_reference.py",
+      "model/cnn_model_tiny.py"
+    ],
+    [
+      "model/tiny_network_reference.py",
+      "model/int16_golden.py"
+    ],
+    [
+      "model/tiny_network_reference.py",
+      "model/pool_reference.py"
+    ],
+    [
+      "scripts/check_tiny_baseline.py",
+      "model/cal_cmd_reference.py"
+    ],
+    [
+      "scripts/check_tiny_baseline.py",
+      "model/cnn_model_tiny.py"
+    ],
+    [
+      "scripts/check_tiny_baseline.py",
+      "model/model_packer.py"
+    ],
+    [
+      "scripts/check_tiny_baseline.py",
+      "scripts/jtag/check_platform.py"
+    ],
+    [
+      "scripts/jtag/infer_tiny.py",
+      "model/cnn_model_tiny.py"
+    ],
+    [
+      "scripts/jtag/infer_tiny.py",
+      "model/model_packer.py"
+    ],
+    [
+      "scripts/jtag/infer_tiny.py",
+      "scripts/jtag/check_platform.py"
+    ],
+    [
+      "scripts/jtag/infer_tiny.py",
+      "scripts/pack_tiny_model.py"
+    ],
+    [
+      "scripts/pack_tiny_model.py",
+      "model/cal_cmd_reference.py"
+    ],
+    [
+      "scripts/pack_tiny_model.py",
+      "model/cnn_model_tiny.py"
+    ],
+    [
+      "scripts/pack_tiny_model.py",
+      "model/model_packer.py"
+    ],
+    [
+      "scripts/pack_tiny_model.py",
+      "model/tiny_network_reference.py"
+    ],
+    [
+      "scripts/pack_tiny_model.py",
+      "scripts/check_tiny_baseline.py"
+    ],
+    [
+      "scripts/prepare_tiny_input.py",
+      "model/cnn_model_tiny.py"
+    ],
+    [
+      "scripts/prepare_tiny_input.py",
+      "model/int16_golden.py"
+    ],
+    [
+      "scripts/prepare_tiny_input.py",
+      "model/tiny_network_reference.py"
+    ]
+  ],
+  "tcl_source_edges": [
+    [
+      "scripts/jtag/infer_tiny.tcl",
+      "scripts/jtag/test_cu8_board.tcl"
+    ],
+    [
+      "scripts/jtag/test_cu8_board.tcl",
+      "scripts/jtag/deploy.tcl"
+    ],
+    [
+      "scripts/jtag/deploy.tcl",
+      "scripts/board/check_e_j0.tcl"
+    ]
+  ],
+  "board_validation": "NOT_RUN",
+  "layout": "Archive copies at original relative paths; restore to complete project before running"
+}
