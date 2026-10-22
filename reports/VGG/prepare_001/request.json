@@ -1,0 +1,91 @@
+{
+  "model": "VGG16",
+  "files": {
+    "vgg_cmd.bin": {
+      "ddr_address": 67108864,
+      "bytes": 1472,
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\weight\\vgg16\\vgg_cmd.bin"
+    },
+    "vgg_weights.bin": {
+      "ddr_address": 301989888,
+      "bytes": 286836800,
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\weight\\vgg16\\vgg_weights.bin"
+    },
+    "input.bin": {
+      "ddr_address": 83886080,
+      "bytes": 401408,
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\inputs\\vgg_sample_001\\input.bin"
+    }
+  },
+  "hardware_files": {
+    "e_j2_system_wrapper.bit": {
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\e_j2_system_wrapper.bit",
+      "bytes": 4045679
+    },
+    "e_j2.xsa": {
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\e_j2.xsa",
+      "bytes": 1435606
+    },
+    "ps7_init.tcl": {
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\ps7_init.tcl",
+      "bytes": 26573
+    },
+    "address_map.tcl": {
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\address_map.tcl",
+      "bytes": 157
+    },
+    "init_checks.tcl": {
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\init_checks.tcl",
+      "bytes": 297
+    },
+    "e_j2_system_bd.tcl": {
+      "source": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\hardware\\system\\e_j2_system_bd.tcl",
+      "bytes": 30012
+    }
+  },
+  "sample": {
+    "model": "VGG16",
+    "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo.jpg",
+    "model_dir": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\weight\\vgg16",
+    "preprocessing": {
+      "color_mode": "RGB",
+      "operations": [
+        "Resize",
+        "CenterCrop",
+        "ToTensor",
+        "Normalize"
+      ],
+      "resize": true,
+      "resize_shorter_side": 256,
+      "crop_size": [
+        224,
+        224
+      ],
+      "interpolation": "bilinear",
+      "antialias": true,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "pixel_formula": "(uint8 / 255.0 - mean[channel]) / std[channel]",
+      "augmentation": false
+    },
+    "input_fraction": 13,
+    "image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\inputs\\vgg_sample_001\\sample.png",
+    "files": {
+      "input.bin": {
+        "bytes": 401408
+      }
+    }
+  },
+  "fclk_hz": 100000000,
+  "output_fraction": 10,
+  "board_validation": "NOT_RUN",
+  "numerical_validation": "NOT_PERFORMED"
+}

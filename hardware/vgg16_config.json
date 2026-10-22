@@ -1,0 +1,88 @@
+{
+  "model": "VGG16",
+  "source": "vgg16_model.py",
+  "dataset": "ImageNet-1K",
+  "inference_batch_size": 1,
+  "input_nchw": [1, 3, 224, 224],
+  "preprocessing": {
+    "color_mode": "RGB",
+    "operations": ["Resize", "CenterCrop", "ToTensor", "Normalize"],
+    "resize": true,
+    "resize_shorter_side": 256,
+    "crop_size": [224, 224],
+    "interpolation": "bilinear",
+    "antialias": true,
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225],
+    "pixel_formula": "(uint8 / 255.0 - mean[channel]) / std[channel]",
+    "augmentation": false
+  },
+  "physical_format": {
+    "dtype": "signed INT16",
+    "byte_order": "little",
+    "layout": "HWC",
+    "channel_alignment": 4,
+    "padding_value": 0,
+    "input_pixel_lanes": ["r_q", "g_q", "b_q", 0],
+    "output_valid_logits": 1000,
+    "output_padded_channels": 1000,
+    "input_bytes": 401408,
+    "output_bytes": 2000,
+    "output_xsdb_words32": 500
+  },
+  "layers": [
+    {"name": "features.0", "opcode": "CONV", "input_hwc": [224, 224, 3], "output_hwc": [224, 224, 64], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.2", "opcode": "CONV", "input_hwc": [224, 224, 64], "output_hwc": [224, 224, 64], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.4", "opcode": "MAXPOOL", "input_hwc": [224, 224, 64], "output_hwc": [112, 112, 64], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "features.5", "opcode": "CONV", "input_hwc": [112, 112, 64], "output_hwc": [112, 112, 128], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.7", "opcode": "CONV", "input_hwc": [112, 112, 128], "output_hwc": [112, 112, 128], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.9", "opcode": "MAXPOOL", "input_hwc": [112, 112, 128], "output_hwc": [56, 56, 128], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "features.10", "opcode": "CONV", "input_hwc": [56, 56, 128], "output_hwc": [56, 56, 256], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.12", "opcode": "CONV", "input_hwc": [56, 56, 256], "output_hwc": [56, 56, 256], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.14", "opcode": "CONV", "input_hwc": [56, 56, 256], "output_hwc": [56, 56, 256], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.16", "opcode": "MAXPOOL", "input_hwc": [56, 56, 256], "output_hwc": [28, 28, 256], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "features.17", "opcode": "CONV", "input_hwc": [28, 28, 256], "output_hwc": [28, 28, 512], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.19", "opcode": "CONV", "input_hwc": [28, 28, 512], "output_hwc": [28, 28, 512], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.21", "opcode": "CONV", "input_hwc": [28, 28, 512], "output_hwc": [28, 28, 512], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.23", "opcode": "MAXPOOL", "input_hwc": [28, 28, 512], "output_hwc": [14, 14, 512], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "features.24", "opcode": "CONV", "input_hwc": [14, 14, 512], "output_hwc": [14, 14, 512], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.26", "opcode": "CONV", "input_hwc": [14, 14, 512], "output_hwc": [14, 14, 512], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.28", "opcode": "CONV", "input_hwc": [14, 14, 512], "output_hwc": [14, 14, 512], "kernel": 3, "stride": 1, "padding": 1, "relu": true},
+    {"name": "features.30", "opcode": "MAXPOOL", "input_hwc": [14, 14, 512], "output_hwc": [7, 7, 512], "kernel": 2, "stride": 2, "padding": 0, "relu": false},
+    {"name": "classifier.0", "opcode": "FC", "input_hwc": [7, 7, 512], "output_hwc": [1, 1, 4096], "kernel": 1, "stride": 1, "padding": 0, "relu": true},
+    {"name": "classifier.3", "opcode": "FC", "input_hwc": [1, 1, 4096], "output_hwc": [1, 1, 4096], "kernel": 1, "stride": 1, "padding": 0, "relu": true},
+    {"name": "classifier.6", "opcode": "FC", "input_hwc": [1, 1, 4096], "output_hwc": [1, 1, 1000], "kernel": 1, "stride": 1, "padding": 0, "relu": false}
+  ],
+  "fc1_flatten_mapping": {
+    "pytorch_order": "CHW",
+    "hardware_order": "HWC",
+    "hardware_index_j": "(h * 7 + w) * 512 + c",
+    "pytorch_index_k": "c * 49 + h * 7 + w",
+    "export_rule": "W_PL[out, j] = W_torch[out, k]",
+    "implementation_stage": "T3"
+  },
+  "hardware": {
+    "bundle": "hardware/system",
+    "capabilities": ["CONV_3x3", "CONV_2x2", "CONV_1x1", "FC", "MAXPOOL_2x2_S2_P0"],
+    "required_capabilities": ["CONV_3x3", "FC", "MAXPOOL_2x2_S2_P0"],
+    "cu": 8,
+    "spatial_parallel": 8,
+    "bypass_parallel": 72,
+    "tile_channels": 512,
+    "weight_block_bytes": 73728,
+    "package_version": 2,
+    "instruction_layout": "V1",
+    "fclk_hz": 100000000,
+    "csr_base": "0x43C00000"
+  },
+  "batch_input": {
+    "ddr_address": "0x06000000",
+    "limit_address": "0x0B000000"
+  },
+  "expected_storage": {
+    "command_bytes": 1472,
+    "weights_and_bias_bytes": 286836800,
+    "max_feature_bytes": 6422528,
+    "layer_output_bytes": [6422528, 6422528, 1605632, 3211264, 3211264, 802816, 1605632, 1605632, 1605632, 401408, 802816, 802816, 802816, 200704, 200704, 200704, 200704, 50176, 8192, 8192, 2000]
+  }
+}

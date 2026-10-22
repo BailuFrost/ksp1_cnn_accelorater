@@ -1,4 +1,3 @@
-"""F-J0：独立 HWC 池化数值及四角 DDR 读流参考。"""
 import struct
 
 

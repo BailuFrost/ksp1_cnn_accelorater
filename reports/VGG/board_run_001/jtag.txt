@@ -1,0 +1,5 @@
+{target_ctx jsn-JTAG-HS1-210512180081 level 0 node_id 1 is_open 1 is_active 1 is_current 1 name {Digilent JTAG-HS1 210512180081} jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081} {target_ctx jsn-JTAG-HS1-210512180081-4ba00477-0 level 1 node_id 2 is_open 1 is_active 1 is_current 0 name arm_dap jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 idcode 4ba00477 irlen 4} {target_ctx jsn-JTAG-HS1-210512180081-23727093-0 level 1 node_id 3 is_open 1 is_active 1 is_current 0 name xc7z020 jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 idcode 23727093 irlen 6 is_fpga 1}
+supported_hz=125000 250000 500000 1000000 2000000 3000000 3750000 5000000 6000000 7500000 10000000 15000000 30000000
+previous_hz=10000000
+requested_hz=10000000
+actual_hz=10000000

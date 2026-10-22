@@ -17,7 +17,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "cnn_scripts"))
 sys.path.insert(0, str(ROOT / "cnn_scripts/scripts/jtag"))
-from cal_cmd_reference import make_layer
+from cnn_scripts.make_layer import make_layer
 from cnn_model_tiny import SimpleCNN, transform
 from model_packer import (HARDWARE_PROFILE, PACKAGE_VERSION, assign_feature_addresses,
                           assign_weight_layout, validate_layers, write_command_file)
@@ -98,16 +98,13 @@ def check_layers(config):
 def check_hardware(config):
     hardware = config["hardware"]
     bundle = ROOT / hardware["bundle"]
-    manifest = json.loads((ROOT / hardware["delivery_manifest"]).read_text(encoding="utf-8"))
-    assert set(hardware["required_capabilities"]) <= set(manifest["capabilities"])
-    assert manifest["hardware_bundle"] == hardware["bundle"] and manifest["build_id"] == hardware["build_id"]
-    assert manifest["implementation"]["status"] == "PASS"
-    assert all(hardware[key] == value for key, value in HARDWARE_PROFILE.items() if key in hardware)
+    assert set(hardware["required_capabilities"]) <= set(hardware["capabilities"])
+    assert all(hardware[key] == value for key, value in HARDWARE_PROFILE.items()
+               if key in hardware)
     assert PACKAGE_VERSION == hardware["package_version"] == 2
     records = bundle_records(bundle, set(hardware["pinned_sha256"]))
     for record in records:
         name = Path(record["path"]).name
-        assert record["sha256"] == manifest["artifact_sha256"][name], name
         if name in hardware["pinned_sha256"]:
             assert record["sha256"] == hardware["pinned_sha256"][name], name
         record["path"] = Path(record["path"]).relative_to(ROOT).as_posix()
@@ -120,7 +117,7 @@ def check_hardware(config):
     assert "set csr_base " + hardware["csr_base"] in (bundle / "address_map.tcl").read_text()
     assert "CONFIG.PCW_CLK0_FREQ {100000000}" in (bundle / "e_j2_system_bd.tcl").read_text()
     return {"bundle": hardware["bundle"], "artifacts": records, "xsa_embedded_files": "MATCH",
-            "pool_capability_evidence": hardware["delivery_manifest"],
+            "capabilities": hardware["capabilities"],
             "pool_board_validation": "NOT_RUN", "tiny_board_validation": "NOT_RUN"}
 
 

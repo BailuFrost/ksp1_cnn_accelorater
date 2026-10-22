@@ -31,7 +31,9 @@ proc make_pattern {kind address bytes} {
 
 proc unique_target {filter} {
 	set matches [targets -target-properties -filter $filter]
-	require {[llength $matches] == 1} "Missing or ambiguous hardware target: $filter"
+	if {[llength $matches] != 1} {
+		error "Missing or ambiguous hardware target: $filter; matches=[llength $matches]; available targets: [targets -target-properties]"
+	}
 	return [dict get [lindex $matches 0] target_id]
 }
 
@@ -81,10 +83,43 @@ proc self_test {} {
 	puts "PASS E-J0 Tcl pattern self-test (no hardware connected)"
 }
 
-proc initialize_e_j0 {bundle {bit_name e_j0_system_wrapper.bit} {xsa_name e_j0.xsa}} {
+proc initialize_e_j0 {bundle {bit_name e_j0_system_wrapper.bit} {xsa_name e_j0.xsa} {jtag_hz {}} {run_dir {}}} {
 	source [file join $bundle init_checks.tcl]
 	connect -url tcp:127.0.0.1:3121
-	puts "TARGETS: [targets -target-properties]"
+	# Apply the requested cable clock before looking for CPU or FPGA targets.
+	if {$jtag_hz ne ""} {
+		require {[string is integer -strict $jtag_hz] && $jtag_hz > 0} "Invalid JTAG frequency"
+		set cables [jtag targets -target-properties -filter {level == 0}]
+		require {[llength $cables] == 1} "Missing or ambiguous JTAG cable: $cables"
+		jtag targets [dict get [lindex $cables 0] node_id]
+		set supported [jtag frequency -list]
+		set previous [jtag frequency]
+		set details "[jtag targets -target-properties]\nsupported_hz=$supported\nprevious_hz=$previous\nrequested_hz=$jtag_hz"
+		puts "JTAG: $details"
+		if {$run_dir ne ""} {
+			set fd [open [file join $run_dir jtag.txt] w]
+			puts $fd $details
+			close $fd
+		}
+		require {$jtag_hz in $supported} "Requested JTAG frequency $jtag_hz is not supported: $supported"
+		jtag frequency $jtag_hz
+		set actual_hz [jtag frequency]
+		puts "JTAG frequency=$actual_hz Hz"
+		if {$run_dir ne ""} {
+			set fd [open [file join $run_dir jtag.txt] a]
+			puts $fd "actual_hz=$actual_hz"
+			close $fd
+		}
+		require {$actual_hz == $jtag_hz} "JTAG frequency readback mismatch"
+	}
+	set detected [targets -target-properties]
+	puts "TARGETS: $detected"
+	flush stdout
+	if {$run_dir ne ""} {
+		set fd [open [file join $run_dir targets_before_init.txt] w]
+		puts $fd $detected
+		close $fd
+	}
 	set cpu0 [unique_target {name == "ARM Cortex-A9 MPCore #0"}]
 	set cpu1 [unique_target {name == "ARM Cortex-A9 MPCore #1"}]
 	set fpga_id [unique_target {name == "xc7z020"}]

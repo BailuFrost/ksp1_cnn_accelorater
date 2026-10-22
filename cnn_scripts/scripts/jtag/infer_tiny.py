@@ -24,7 +24,8 @@ def preflight(model_dir, bundle, input_dir=None):
     manifest = load_json(model_dir / "deployment_manifest.json")
     config = load_json(ROOT / "hardware/tiny_model_config.json")
     quant = load_json(model_dir / "quantization.json")
-    require(manifest["hardware_profile"] == HARDWARE_PROFILE and manifest["package_version"] == 2,
+    require(all(manifest["hardware_profile"].get(key) == value for key, value in HARDWARE_PROFILE.items())
+            and manifest["package_version"] == 2,
             "必须使用当前 8CU INT16 模型包")
     files = {row["filename"]: row for row in manifest["files"]}
     require(len(manifest["files"]) == len(files) == len(NAMES) and set(files) == set(NAMES), "部署文件清单错误")

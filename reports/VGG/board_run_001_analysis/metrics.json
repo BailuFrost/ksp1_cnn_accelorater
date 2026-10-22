@@ -1,0 +1,158 @@
+{
+  "source_run": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\reports\\VGG\\board_run_001",
+  "analysis_scope": "Read-only audit of original board results; FP32 reference is additional analysis, not ground-truth accuracy or bit-exact integer validation",
+  "environment": {
+    "python": "3.12",
+    "torch": "2.14.1+cpu",
+    "xsdb": "2024.2",
+    "timezone": "Asia/Shanghai"
+  },
+  "execution": {
+    "images": 50,
+    "passed": 50,
+    "raw_csr_runtime_logits_verified": true,
+    "input_bank_unchanged": true,
+    "unique_inputs": 50,
+    "unique_outputs": 50,
+    "restored_input_address": "0x05000000"
+  },
+  "timing": {
+    "unit": "ms",
+    "count": 50,
+    "total": 379621.89884,
+    "mean": 7592.4379768,
+    "median": 7592.437115,
+    "sample_stdev": 0.013505445982453236,
+    "min": 7592.41788,
+    "max": 7592.47695,
+    "cv_percent": 0.00017788022798107076,
+    "range_us": 59.07000000024709
+  },
+  "operations": {
+    "convention": "1 MAC = 2 operations; Conv/FC logical work; pooling and control only in elapsed time",
+    "conv": 30693261312,
+    "fc": 247267328,
+    "total_per_image": 30940528640
+  },
+  "performance": {
+    "gops": 4.0751770030317145,
+    "hardware_equivalent_fps": 0.13170999921970677,
+    "peak_gops": 28.8,
+    "efficiency_percent": 14.149920149415676,
+    "gops_per_lut": 0.00012126337567790616,
+    "gops_per_ff": 9.830125923947593e-05,
+    "gops_per_bram36": 0.039757824419821605,
+    "gops_per_dsp": 0.028299840298831352,
+    "power_w": null,
+    "gops_per_w": null
+  },
+  "fp32_comparison": {
+    "checkpoint_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+    "top1_agreement": 50,
+    "top5_set_agreement": 50,
+    "top5_order_agreement": 49,
+    "mae": 0.0007231652303948068,
+    "rmse": 0.01646450758424585,
+    "max_error": 3.676746368408203,
+    "non_endpoint_mae": 0.0006496432958925605,
+    "non_endpoint_max_error": 0.005151987075805664,
+    "endpoint_logits": 1,
+    "rank_changes": [
+      {
+        "image": "photo21.jpg",
+        "pl_top5": [
+          371,
+          335,
+          556,
+          743,
+          228
+        ],
+        "fp32_top5": [
+          371,
+          335,
+          743,
+          556,
+          228
+        ]
+      }
+    ],
+    "ground_truth_accuracy": null,
+    "integer_bit_exact_validation": "NOT_PERFORMED"
+  },
+  "filesystem_phase_estimates": {
+    "basis": "Approximate file creation/modification timestamps; not explicit phase timers",
+    "session_s": 2064.455417394638,
+    "weight_download_readback_s": 1517.6518297195435,
+    "input_download_readback_s": 107.27956247329712,
+    "image_loop_s": 383.07581758499146,
+    "final_input_readback_s": 49.03329920768738
+  },
+  "weight_upload_saving_vs_50_full_deployments": {
+    "copies_avoided": 49,
+    "bytes_avoided": 14055003200,
+    "GiB_avoided": 13.08974176645279
+  },
+  "payload_hash_checks": [
+    {
+      "payload": "input_bin.bin",
+      "files": [
+        {
+          "file": "reports\\VGG\\board_run_001\\payload\\input_bin.bin",
+          "bytes": 20070400,
+          "sha256": "dbc58218c0eb4e800d7191e64794fa162a758b48d114a04c395e68642b7a25ae"
+        },
+        {
+          "file": "reports\\VGG\\board_run_001\\input_bin.bin.readback",
+          "bytes": 20070400,
+          "sha256": "dbc58218c0eb4e800d7191e64794fa162a758b48d114a04c395e68642b7a25ae"
+        },
+        {
+          "file": "reports\\VGG\\board_run_001\\input_bin.bin.final_readback",
+          "bytes": 20070400,
+          "sha256": "dbc58218c0eb4e800d7191e64794fa162a758b48d114a04c395e68642b7a25ae"
+        }
+      ],
+      "equal": true
+    },
+    {
+      "payload": "vgg_cmd.bin",
+      "files": [
+        {
+          "file": "reports\\VGG\\board_run_001\\payload\\vgg_cmd.bin",
+          "bytes": 1472,
+          "sha256": "abf91d6fc1bd2ee729dee7a6728f86347e4b643ad18977e284fc6f14a3ddeb8f"
+        },
+        {
+          "file": "reports\\VGG\\board_run_001\\vgg_cmd.bin.readback",
+          "bytes": 1472,
+          "sha256": "abf91d6fc1bd2ee729dee7a6728f86347e4b643ad18977e284fc6f14a3ddeb8f"
+        }
+      ],
+      "equal": true
+    },
+    {
+      "payload": "vgg_weights.bin",
+      "files": [
+        {
+          "file": "reports\\VGG\\board_run_001\\payload\\vgg_weights.bin",
+          "bytes": 286836800,
+          "sha256": "4db1b68beb4f7ecb67a946efff7cf54c382f378e477622dc8c87ea7742429cfd"
+        },
+        {
+          "file": "reports\\VGG\\board_run_001\\vgg_weights.bin.readback",
+          "bytes": 286836800,
+          "sha256": "4db1b68beb4f7ecb67a946efff7cf54c382f378e477622dc8c87ea7742429cfd"
+        }
+      ],
+      "equal": true
+    }
+  ],
+  "resources": {
+    "source": "hardware/system/utilization_impl.rpt",
+    "lut": 33606,
+    "ff": 41456,
+    "bram36": 102.5,
+    "dsp": 144,
+    "note": "Board bitstream matches current hardware bundle; utilization from its accompanying routed report"
+  }
+}

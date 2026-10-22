@@ -1,0 +1,399 @@
+{
+  "model": "VGG16",
+  "format_version": 1,
+  "layout": {
+    "ddr_address": 100663296,
+    "limit_address": 184549376,
+    "input_bytes": 401408,
+    "count": 50,
+    "bytes": 20070400
+  },
+  "model_dir": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\cnn_scripts\\weight\\vgg16",
+  "preprocessing": {
+    "color_mode": "RGB",
+    "operations": [
+      "Resize",
+      "CenterCrop",
+      "ToTensor",
+      "Normalize"
+    ],
+    "resize": true,
+    "resize_shorter_side": 256,
+    "crop_size": [
+      224,
+      224
+    ],
+    "interpolation": "bilinear",
+    "antialias": true,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "pixel_formula": "(uint8 / 255.0 - mean[channel]) / std[channel]",
+    "augmentation": false
+  },
+  "input_fraction": 13,
+  "samples": [
+    {
+      "index": 0,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo1.jpg",
+      "image": "images/0001.png",
+      "offset": 0,
+      "ddr_address": 100663296
+    },
+    {
+      "index": 1,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo2.jpg",
+      "image": "images/0002.png",
+      "offset": 401408,
+      "ddr_address": 101064704
+    },
+    {
+      "index": 2,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo3.jpg",
+      "image": "images/0003.png",
+      "offset": 802816,
+      "ddr_address": 101466112
+    },
+    {
+      "index": 3,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo4.jpg",
+      "image": "images/0004.png",
+      "offset": 1204224,
+      "ddr_address": 101867520
+    },
+    {
+      "index": 4,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo5.jpg",
+      "image": "images/0005.png",
+      "offset": 1605632,
+      "ddr_address": 102268928
+    },
+    {
+      "index": 5,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo6.jpg",
+      "image": "images/0006.png",
+      "offset": 2007040,
+      "ddr_address": 102670336
+    },
+    {
+      "index": 6,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo7.jpg",
+      "image": "images/0007.png",
+      "offset": 2408448,
+      "ddr_address": 103071744
+    },
+    {
+      "index": 7,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo8.jpg",
+      "image": "images/0008.png",
+      "offset": 2809856,
+      "ddr_address": 103473152
+    },
+    {
+      "index": 8,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo9.jpg",
+      "image": "images/0009.png",
+      "offset": 3211264,
+      "ddr_address": 103874560
+    },
+    {
+      "index": 9,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo10.jpg",
+      "image": "images/0010.png",
+      "offset": 3612672,
+      "ddr_address": 104275968
+    },
+    {
+      "index": 10,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo11.jpg",
+      "image": "images/0011.png",
+      "offset": 4014080,
+      "ddr_address": 104677376
+    },
+    {
+      "index": 11,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo12.jpg",
+      "image": "images/0012.png",
+      "offset": 4415488,
+      "ddr_address": 105078784
+    },
+    {
+      "index": 12,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo13.jpg",
+      "image": "images/0013.png",
+      "offset": 4816896,
+      "ddr_address": 105480192
+    },
+    {
+      "index": 13,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo14.jpg",
+      "image": "images/0014.png",
+      "offset": 5218304,
+      "ddr_address": 105881600
+    },
+    {
+      "index": 14,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo15.jpg",
+      "image": "images/0015.png",
+      "offset": 5619712,
+      "ddr_address": 106283008
+    },
+    {
+      "index": 15,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo16.jpg",
+      "image": "images/0016.png",
+      "offset": 6021120,
+      "ddr_address": 106684416
+    },
+    {
+      "index": 16,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo17.jpg",
+      "image": "images/0017.png",
+      "offset": 6422528,
+      "ddr_address": 107085824
+    },
+    {
+      "index": 17,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo18.jpg",
+      "image": "images/0018.png",
+      "offset": 6823936,
+      "ddr_address": 107487232
+    },
+    {
+      "index": 18,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo19.jpg",
+      "image": "images/0019.png",
+      "offset": 7225344,
+      "ddr_address": 107888640
+    },
+    {
+      "index": 19,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo20.jpg",
+      "image": "images/0020.png",
+      "offset": 7626752,
+      "ddr_address": 108290048
+    },
+    {
+      "index": 20,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo21.jpg",
+      "image": "images/0021.png",
+      "offset": 8028160,
+      "ddr_address": 108691456
+    },
+    {
+      "index": 21,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo22.jpg",
+      "image": "images/0022.png",
+      "offset": 8429568,
+      "ddr_address": 109092864
+    },
+    {
+      "index": 22,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo23.jpg",
+      "image": "images/0023.png",
+      "offset": 8830976,
+      "ddr_address": 109494272
+    },
+    {
+      "index": 23,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo24.jpg",
+      "image": "images/0024.png",
+      "offset": 9232384,
+      "ddr_address": 109895680
+    },
+    {
+      "index": 24,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo25.jpg",
+      "image": "images/0025.png",
+      "offset": 9633792,
+      "ddr_address": 110297088
+    },
+    {
+      "index": 25,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo26.jpg",
+      "image": "images/0026.png",
+      "offset": 10035200,
+      "ddr_address": 110698496
+    },
+    {
+      "index": 26,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo27.jpg",
+      "image": "images/0027.png",
+      "offset": 10436608,
+      "ddr_address": 111099904
+    },
+    {
+      "index": 27,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo28.jpg",
+      "image": "images/0028.png",
+      "offset": 10838016,
+      "ddr_address": 111501312
+    },
+    {
+      "index": 28,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo29.jpg",
+      "image": "images/0029.png",
+      "offset": 11239424,
+      "ddr_address": 111902720
+    },
+    {
+      "index": 29,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo30.jpg",
+      "image": "images/0030.png",
+      "offset": 11640832,
+      "ddr_address": 112304128
+    },
+    {
+      "index": 30,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo31.jpg",
+      "image": "images/0031.png",
+      "offset": 12042240,
+      "ddr_address": 112705536
+    },
+    {
+      "index": 31,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo32.jpg",
+      "image": "images/0032.png",
+      "offset": 12443648,
+      "ddr_address": 113106944
+    },
+    {
+      "index": 32,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo33.jpg",
+      "image": "images/0033.png",
+      "offset": 12845056,
+      "ddr_address": 113508352
+    },
+    {
+      "index": 33,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo34.jpg",
+      "image": "images/0034.png",
+      "offset": 13246464,
+      "ddr_address": 113909760
+    },
+    {
+      "index": 34,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo35.jpg",
+      "image": "images/0035.png",
+      "offset": 13647872,
+      "ddr_address": 114311168
+    },
+    {
+      "index": 35,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo36.jpg",
+      "image": "images/0036.png",
+      "offset": 14049280,
+      "ddr_address": 114712576
+    },
+    {
+      "index": 36,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo37.jpg",
+      "image": "images/0037.png",
+      "offset": 14450688,
+      "ddr_address": 115113984
+    },
+    {
+      "index": 37,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo38.jpg",
+      "image": "images/0038.png",
+      "offset": 14852096,
+      "ddr_address": 115515392
+    },
+    {
+      "index": 38,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo39.jpg",
+      "image": "images/0039.png",
+      "offset": 15253504,
+      "ddr_address": 115916800
+    },
+    {
+      "index": 39,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo40.jpg",
+      "image": "images/0040.png",
+      "offset": 15654912,
+      "ddr_address": 116318208
+    },
+    {
+      "index": 40,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo41.jpg",
+      "image": "images/0041.png",
+      "offset": 16056320,
+      "ddr_address": 116719616
+    },
+    {
+      "index": 41,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo42.jpg",
+      "image": "images/0042.png",
+      "offset": 16457728,
+      "ddr_address": 117121024
+    },
+    {
+      "index": 42,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo43.jpg",
+      "image": "images/0043.png",
+      "offset": 16859136,
+      "ddr_address": 117522432
+    },
+    {
+      "index": 43,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo44.jpg",
+      "image": "images/0044.png",
+      "offset": 17260544,
+      "ddr_address": 117923840
+    },
+    {
+      "index": 44,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo45.jpg",
+      "image": "images/0045.png",
+      "offset": 17661952,
+      "ddr_address": 118325248
+    },
+    {
+      "index": 45,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo46.jpg",
+      "image": "images/0046.png",
+      "offset": 18063360,
+      "ddr_address": 118726656
+    },
+    {
+      "index": 46,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo47.jpg",
+      "image": "images/0047.png",
+      "offset": 18464768,
+      "ddr_address": 119128064
+    },
+    {
+      "index": 47,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo48.jpg",
+      "image": "images/0048.png",
+      "offset": 18866176,
+      "ddr_address": 119529472
+    },
+    {
+      "index": 48,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo49.jpg",
+      "image": "images/0049.png",
+      "offset": 19267584,
+      "ddr_address": 119930880
+    },
+    {
+      "index": 49,
+      "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo\\photo50.jpg",
+      "image": "images/0050.png",
+      "offset": 19668992,
+      "ddr_address": 120332288
+    }
+  ],
+  "files": {
+    "input_bin.bin": {
+      "bytes": 20070400
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "PASS_OFFLINE",
+  "model": "VGG16",
+  "source_image": "E:\\Loongson_SoC\\CNN\\xc7z020_cnn_accelerator\\photo.jpg",
+  "photo_size": [
+    84,
+    84
+  ],
+  "input_nchw": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "input_fraction": 13,
+  "calibration": {
+    "dataset": "Mini-ImageNet",
+    "split": "train",
+    "samples": 320,
+    "samples_per_class": 5
+  },
+  "layer_count": 21,
+  "weighted_layer_count": 16,
+  "signed48_safe": true,
+  "command_records_verified": 21,
+  "weight_bias_padding_samples_verified": 80,
+  "input_all_values_and_padding_verified": true,
+  "quantization_copy_matches": true,
+  "hardware_bundle_check": "PASS",
+  "configured_ddr_last_byte": "0x3fffffff",
+  "files": [
+    {
+      "path": "cnn_scripts/weight/vgg16/vgg_cmd.bin",
+      "bytes": 1472,
+      "ddr_address": "0x04000000",
+      "ddr_last_byte": "0x040005bf"
+    },
+    {
+      "path": "cnn_scripts/weight/vgg16/vgg_weights.bin",
+      "bytes": 286836800,
+      "ddr_address": "0x12000000",
+      "ddr_last_byte": "0x2318c83f"
+    },
+    {
+      "path": "cnn_scripts/inputs/vgg_sample_001/input.bin",
+      "bytes": 401408,
+      "ddr_address": "0x05000000",
+      "ddr_last_byte": "0x05061fff"
+    }
+  ],
+  "pl_output": {
+    "ddr_address": "0x04200000",
+    "bytes": 2000,
+    "dtype": "little-endian signed INT16",
+    "logits": 1000
+  },
+  "hardware_execution": "NOT_RUN",
+  "software_classification": "NOT_RUN",
+  "expected_bin": "NOT_GENERATED",
+  "deployment_script": "Existing infer_tiny.py/tcl is TinyCNN-specific; not used for VGG16",
+  "validation_seconds": 8.3
+}

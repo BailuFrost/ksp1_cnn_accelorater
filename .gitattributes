@@ -1,0 +1,6 @@
+/cnn_scripts/weight/vgg16.pth filter=lfs diff=lfs merge=lfs -text
+/cnn_scripts/weight/vgg16/vgg_weights.bin filter=lfs diff=lfs merge=lfs -text
+/reports/VGG/batch_prepare_001/payload/vgg_weights.bin filter=lfs diff=lfs merge=lfs -text
+/reports/VGG/board_run_001/payload/vgg_weights.bin filter=lfs diff=lfs merge=lfs -text
+/reports/VGG/board_run_001/vgg_weights.bin.readback filter=lfs diff=lfs merge=lfs -text
+/reports/VGG/prepare_001/payload/vgg_weights.bin filter=lfs diff=lfs merge=lfs -text
